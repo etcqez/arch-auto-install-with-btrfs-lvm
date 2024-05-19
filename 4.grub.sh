@@ -17,6 +17,7 @@ echo root:f | chpasswd
 
 pacman -S --noconfirm grub efibootmgr amd-ucode
 sed -Ei '/^(GRUB_CMDLINE_LINUX_DEFAULT)/s/"$/ net.ifnames=0"/' /etc/default/grub
+sed -Ei '/^(GRUB_TIMEOUT=)/s/.$/1/' /etc/default/grub
 grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=Arch
 grub-mkconfig -o /boot/grub/grub.cfg
 systemctl enable NetworkManager

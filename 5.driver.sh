@@ -4,7 +4,7 @@ set -ue
 user=f
 
 # create user
-pacman -S --need --noconfirm sudo zsh git curl
+pacman -S --need --noconfirm sudo zsh git curl neovim
 useradd -m -G wheel -s /bin/zsh $user
 echo $user:f | chpasswd
 
